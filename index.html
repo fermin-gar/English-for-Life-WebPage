@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>English for Life</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -13,88 +13,102 @@
       font-family: 'Poppins', sans-serif;
       background: #0f172a;
       color: white;
-      scroll-behavior: smooth;
     }
 
     header {
-      padding: 20px 50px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      background: rgba(255,255,255,0.05);
+      padding: 20px 40px;
       position: sticky;
       top: 0;
+      background: rgba(15,23,42,0.8);
+      backdrop-filter: blur(10px);
     }
 
     nav a {
-      color: white;
-      text-decoration: none;
       margin-left: 20px;
+      color: #cbd5f5;
+      text-decoration: none;
     }
 
     .hero {
       text-align: center;
-      padding: 120px 20px;
+      padding: 140px 20px;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
     }
 
-    .hero h2 {
-      font-size: 44px;
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
     }
 
     .hero p {
-      color: #cbd5f5;
+      font-size: 18px;
+      opacity: 0.9;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 15px;
-      padding: 12px 25px;
-      background: #3b82f6;
-      border-radius: 8px;
+      margin-top: 20px;
+      padding: 14px 28px;
+      background: white;
+      color: #0f172a;
+      border-radius: 10px;
       text-decoration: none;
-      color: white;
+      font-weight: 600;
     }
 
     .section {
-      padding: 60px 20px;
-      max-width: 1000px;
+      padding: 80px 20px;
+      max-width: 1100px;
       margin: auto;
     }
 
-    .card {
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
+    .grid {
+      display: grid;
+      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
-    .courses {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    .card {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 32px;
     }
 
     input, textarea, select {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-top: 10px;
-      border-radius: 6px;
+      border-radius: 8px;
       border: none;
     }
 
     button {
-      margin-top: 10px;
-      padding: 12px;
+      width: 100%;
+      margin-top: 15px;
+      padding: 14px;
       background: #22c55e;
       border: none;
       color: white;
-      border-radius: 6px;
+      border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 30px;
       color: #94a3b8;
     }
 
@@ -103,19 +117,21 @@
       bottom: 20px;
       right: 20px;
       background: #25D366;
-      padding: 15px;
+      padding: 16px;
       border-radius: 50%;
+      font-size: 22px;
       text-decoration: none;
       color: white;
-      font-size: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <h2>English for Life</h2>
+  <strong>English for Life</strong>
   <nav>
     <a href="#about">Nosotros</a>
     <a href="#courses">Cursos</a>
@@ -124,99 +140,86 @@
 </header>
 
 <section class="hero">
-  <h2>Aprende inglés de verdad</h2>
-  <p>“Conectando el aprendizaje con la comunicación real.”</p>
-  <a href="#contact" class="btn">Agendar ahora</a>
+  <h1>Habla inglés con confianza</h1>
+  <p>Conectando el aprendizaje con la comunicación real</p>
+  <a href="#contact" class="btn">Empieza ahora</a>
 </section>
 
 <section class="section" id="about">
-  <h3>Sobre Nosotros</h3>
-
-  <div class="card">
-    <p>
-      English for Life se enfoca en ayudarte a hablar inglés con confianza desde el primer día, 
-      priorizando la comunicación real y la pronunciación efectiva.
-    </p>
-  </div>
-
-  <div class="card">
-    <h4>Misión</h4>
-    <p>
-      Brindar formación en el idioma inglés mediante metodologías innovadoras enfocadas en la pronunciación 
-      y la comunicación efectiva, utilizando herramientas tecnológicas que favorezcan un aprendizaje flexible y de calidad.
-    </p>
-  </div>
-
-  <div class="card">
-    <h4>Visión</h4>
-    <p>
-      Ser una organización reconocida en Panamá por la calidad de su enseñanza del idioma inglés en entornos virtuales, 
-      destacándose por la innovación y el desarrollo de competencias comunicativas en sus estudiantes.
-    </p>
-  </div>
-
-</section>
-
-<section class="section" id="courses">
-  <h3>Cursos</h3>
-
-  <div class="courses">
+  <h2>¿Por qué elegirnos?</h2>
+  <div class="grid">
 
     <div class="card">
-      <h4>Inglés Básico</h4>
-      <p>Aprende desde cero con enfoque en conversación.</p>
+      <h3>Comunicación real</h3>
+      <p>Aprende a hablar inglés en situaciones reales desde el primer día.</p>
     </div>
 
     <div class="card">
-      <h4>Inglés Intermedio</h4>
+      <h3>Metodología moderna</h3>
+      <p>Uso de herramientas tecnológicas para aprendizaje flexible.</p>
+    </div>
+
+    <div class="card">
+      <h3>Resultados rápidos</h3>
+      <p>Enfoque en pronunciación y fluidez.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="courses">
+  <h2>Cursos</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Básico</h3>
+      <p>Empieza desde cero y construye una base sólida.</p>
+    </div>
+
+    <div class="card">
+      <h3>Intermedio</h3>
       <p>Mejora tu fluidez y comprensión.</p>
     </div>
 
     <div class="card">
-      <h4>Pronunciación</h4>
-      <p>Habla como un nativo con técnicas especializadas.</p>
+      <h3>Pronunciación</h3>
+      <p>Habla con seguridad y claridad.</p>
     </div>
 
   </div>
 </section>
 
 <section class="section" id="contact">
-  <h3>Empieza hoy 🚀</h3>
-
-  <p>Déjanos tus datos y te contactamos por WhatsApp para ayudarte a comenzar.</p>
+  <h2>Empieza hoy 🚀</h2>
 
   <form action="https://formspree.io/f/mykbvenz" method="POST">
 
     <input type="text" name="nombre" placeholder="Tu nombre" required>
-
     <input type="email" name="email" placeholder="Tu correo" required>
-
-    <input type="tel" name="telefono" placeholder="Tu teléfono (WhatsApp)">
+    <input type="tel" name="telefono" placeholder="Tu WhatsApp">
 
     <select name="nivel" required>
-      <option value="">Selecciona tu nivel</option>
-      <option value="basico">Básico</option>
-      <option value="intermedio">Intermedio</option>
-      <option value="avanzado">Avanzado</option>
+      <option value="">Nivel de inglés</option>
+      <option>Básico</option>
+      <option>Intermedio</option>
+      <option>Avanzado</option>
     </select>
 
     <select name="objetivo">
-      <option value="">¿Qué quieres lograr?</option>
-      <option value="conversacion">Conversación</option>
-      <option value="trabajo">Trabajo</option>
-      <option value="viajes">Viajes</option>
-      <option value="pronunciacion">Pronunciación</option>
+      <option value="">Objetivo</option>
+      <option>Conversación</option>
+      <option>Trabajo</option>
+      <option>Viajes</option>
+      <option>Pronunciación</option>
     </select>
 
-    <textarea name="mensaje" placeholder="Cuéntanos un poco más (opcional)"></textarea>
+    <textarea name="mensaje" placeholder="Mensaje (opcional)"></textarea>
 
-    <button type="submit">Quiero más información</button>
+    <button type="submit">Quiero empezar</button>
 
   </form>
-
 </section>
 
-<!-- BOTÓN WHATSAPP -->
 <a href="https://wa.me/50764117561" class="whatsapp" target="_blank">💬</a>
 
 <footer>
