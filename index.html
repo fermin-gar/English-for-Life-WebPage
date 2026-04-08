@@ -33,12 +33,13 @@
 
     .hero {
       text-align: center;
-      padding: 140px 20px;
+      padding: 150px 20px;
       background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      animation: fadeIn 1.2s ease;
     }
 
     .hero h1 {
-      font-size: 48px;
+      font-size: 50px;
       margin-bottom: 10px;
     }
 
@@ -78,7 +79,7 @@
     }
 
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
     }
 
     h2 {
@@ -125,6 +126,10 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
+    @keyframes fadeIn {
+      from {opacity:0; transform: translateY(20px);}
+      to {opacity:1; transform: translateY(0);}
+    }
   </style>
 </head>
 
@@ -173,7 +178,7 @@
 
     <div class="card">
       <h3>Básico</h3>
-      <p>Empieza desde cero y construye una base sólida.</p>
+      <p>Empieza desde cero con enfoque en conversación.</p>
     </div>
 
     <div class="card">
@@ -192,7 +197,7 @@
 <section class="section" id="contact">
   <h2>Empieza hoy 🚀</h2>
 
-  <form action="https://formspree.io/f/mykbvenz" method="POST">
+  <form id="form">
 
     <input type="text" name="nombre" placeholder="Tu nombre" required>
     <input type="email" name="email" placeholder="Tu correo" required>
@@ -225,6 +230,28 @@
 <footer>
   © 2026 English for Life
 </footer>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const data = new FormData(this);
+
+  fetch("https://formspree.io/f/mykbvenz", {
+    method: "POST",
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(() => {
+
+    const nombre = data.get("nombre") || "";
+    const nivel = data.get("nivel") || "";
+
+    const mensaje = `Hola, soy ${nombre}. Mi nivel es ${nivel} y quiero información sobre clases de inglés.`;
+
+    window.location.href = `https://wa.me/50764117561?text=${encodeURIComponent(mensaje)}`;
+  });
+});
+</script>
 
 </body>
 </html>
