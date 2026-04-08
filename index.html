@@ -16,6 +16,7 @@
       scroll-behavior: smooth;
     }
 
+    /* Header en blanco para que resalte el logo */
     header {
       display: flex;
       justify-content: space-between;
@@ -23,21 +24,26 @@
       padding: 10px 40px;
       position: sticky;
       top: 0;
-      background: rgba(15,23,42,0.9);
-      backdrop-filter: blur(10px);
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       z-index: 1000;
     }
 
     .logo-img {
-      height: 50px; /* Ajusta el tamaño de tu logo */
+      height: 60px; 
       width: auto;
     }
 
     nav a {
       margin-left: 20px;
-      color: #cbd5f5;
+      color: #1e293b; /* Texto oscuro para fondo blanco */
       text-decoration: none;
-      font-weight: 400;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #3b82f6;
     }
 
     .hero {
@@ -47,15 +53,8 @@
       animation: fadeIn 1.2s ease;
     }
 
-    .hero h1 {
-      font-size: 50px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
+    .hero h1 { font-size: 50px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; opacity: 0.9; }
 
     .btn {
       display: inline-block;
@@ -67,11 +66,6 @@
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #e2e8f0;
-      transform: scale(1.05);
     }
 
     .section {
@@ -89,225 +83,15 @@
     .card {
       background: #1e293b;
       border-radius: 15px;
-      overflow: hidden; /* Para que la imagen respete las esquinas redondeadas */
+      overflow: hidden;
       transition: 0.3s;
       border: 1px solid #334155;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: #3b82f6;
-    }
+    .card:hover { transform: translateY(-10px); border-color: #3b82f6; }
+    .card-img { width: 100%; height: 200px; object-fit: cover; }
+    .card-content { padding: 20px; }
 
-    .card-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover; /* Ajusta la imagen al contenedor sin deformarla */
-    }
+    h2 { margin-bottom: 30px; font-size: 32px; text-align: center; }
 
-    .card-content {
-      padding: 20px;
-    }
-
-    h2 {
-      margin-bottom: 30px;
-      font-size: 32px;
-      text-align: center;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: 1px solid #334155;
-      background: #1e293b;
-      color: white;
-      box-sizing: border-box;
-    }
-
-    button {
-      width: 100%;
-      margin-top: 15px;
-      padding: 14px;
-      background: #22c55e;
-      border: none;
-      color: white;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #16a34a;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #94a3b8;
-      border-top: 1px solid #1e293b;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      transition: 0.3s;
-      z-index: 1000;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-    }
-
-    .whatsapp-float img {
-      width: 100%;
-      height: 100%;
-    }
-
-    @keyframes fadeIn {
-      from {opacity:0; transform: translateY(20px);}
-      to {opacity:1; transform: translateY(0);}
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <img src="logo.png" alt="English for Life Logo" class="logo-img">
-  <nav>
-    <a href="#about">Nosotros</a>
-    <a href="#courses">Cursos</a>
-    <a href="#contact">Contacto</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Habla inglés con confianza</h1>
-  <p>Conectando el aprendizaje con la comunicación real</p>
-  <a href="#contact" class="btn">Empieza ahora</a>
-</section>
-
-<section class="section" id="about">
-  <h2>¿Por qué elegirnos?</h2>
-  <div class="grid">
-
-    <div class="card">
-      <img src="dog.jpg" alt="Aprendizaje amigable" class="card-img">
-      <div class="card-content">
-        <h3>Comunicación real</h3>
-        <p>Aprende a hablar inglés en situaciones cotidianas desde el primer día.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="pen.jpg" alt="Metodología" class="card-img">
-      <div class="card-content">
-        <h3>Metodología moderna</h3>
-        <p>Enfoque práctico diseñado para superar barreras de aprendizaje.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="study.jpg" alt="Resultados" class="card-img">
-      <div class="card-content">
-        <h3>Resultados rápidos</h3>
-        <p>Clases dinámicas que garantizan mayor fluidez en menos tiempo.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="section" id="courses">
-  <h2>Nuestros Cursos</h2>
-  <div class="grid">
-
-    <div class="card">
-      <img src="english.jpg" alt="Curso Básico" class="card-img">
-      <div class="card-content">
-        <h3>Básico</h3>
-        <p>Empieza desde cero con bases sólidas y vocabulario esencial.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="listen.jpg" alt="Curso Intermedio" class="card-img">
-      <div class="card-content">
-        <h3>Intermedio & Listening</h3>
-        <p>Mejora tu oído y tu fluidez para entender a nativos sin esfuerzo.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="study.jpg" alt="Pronunciación" class="card-img">
-      <div class="card-content">
-        <h3>Pronunciación</h3>
-        <p>Perfecciona tu acento y habla con seguridad absoluta.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <h2>Empieza hoy 🚀</h2>
-  <form id="form" style="max-width: 600px; margin: auto;">
-    <input type="text" name="nombre" placeholder="Tu nombre" required>
-    <input type="email" name="email" placeholder="Tu correo" required>
-    <input type="tel" name="telefono" placeholder="Tu WhatsApp">
-
-    <select name="nivel" required>
-      <option value="">Nivel de inglés</option>
-      <option>Básico</option>
-      <option>Intermedio</option>
-      <option>Avanzado</option>
-    </select>
-
-    <select name="objetivo">
-      <option value="">Objetivo</option>
-      <option>Conversación</option>
-      <option>Trabajo</option>
-      <option>Viajes</option>
-      <option>Pronunciación</option>
-    </select>
-
-    <textarea name="mensaje" placeholder="Mensaje (opcional)"></textarea>
-    <button type="submit">Quiero empezar</button>
-  </form>
-</section>
-
-<a href="https://wa.me/50764117561" class="whatsapp-float" target="_blank">
-  <img src="whatsapp.png" alt="WhatsApp Contact">
-</a>
-
-<footer>
-  © 2026 English for Life
-</footer>
-
-<script>
-document.getElementById("form").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const data = new FormData(this);
-
-  fetch("https://formspree.io/f/mykbvenz", {
-    method: "POST",
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  }).then(() => {
-    const nombre = data.get("nombre") || "";
-    const nivel = data.get("nivel") || "";
-    const mensaje = `Hola, soy ${nombre}. Mi nivel es ${nivel} y quiero información sobre clases de inglés.`;
-    window.location.href = `https://wa.me/50764117561?text=${encodeURIComponent(mensaje)}`;
-  });
-});
-</script>
-
-</body>
-</html>
+    /*
