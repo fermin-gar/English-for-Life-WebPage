@@ -8,90 +8,516 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Estilos Globales */
+    :root {
+      --primary: #3b82f6; /* Azul principal */
+      --secondary: #06b6d4; /* Cian secundario */
+      --dark-bg: #0f172a; /* Fondo muy oscuro */
+      --card-bg: #1e293b; /* Fondo tarjetas oscuras */
+      --text-main: #ffffff; /* Texto claro */
+      --text-muted: #94a3b8; /* Texto gris */
+    }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #0f172a;
-      color: white;
+      background-color: var(--dark-bg);
+      color: var(--text-main);
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
-    /* Header en blanco para que resalte el logo */
+    /* Header y Navegación (CORREGIDO PARA LOGO OSCURO) */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 40px;
+      padding: 15px 40px;
       position: sticky;
       top: 0;
-      background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: #ffffff; /* Fondo blanco */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       z-index: 1000;
     }
 
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Estilo para el texto si no hay logo */
+    .logo-text {
+      font-weight: 700;
+      font-size: 24px;
+      color: #1e293b; /* Texto oscuro */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Estilo para la imagen del logo (se ajustará cuando se suba) */
     .logo-img {
-      height: 60px; 
+      max-height: 50px;
       width: auto;
+      display: none; /* Oculto por defecto */
+    }
+
+    nav {
+      display: flex;
     }
 
     nav a {
-      margin-left: 20px;
+      margin-left: 25px;
       color: #1e293b; /* Texto oscuro para fondo blanco */
       text-decoration: none;
       font-weight: 600;
-      transition: 0.3s;
+      font-size: 15px;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #3b82f6;
+      color: var(--primary);
     }
 
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 120px 20px;
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
-      animation: fadeIn 1.2s ease;
+      padding: 140px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--text-main);
     }
 
-    .hero h1 { font-size: 50px; margin-bottom: 10px; }
-    .hero p { font-size: 18px; opacity: 0.9; }
+    .hero h1 {
+      font-size: 56px;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
 
-    .btn {
+    .hero p {
+      font-size: 20px;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+
+    .btn-hero {
       display: inline-block;
-      margin-top: 20px;
-      padding: 14px 28px;
+      padding: 16px 35px;
       background: white;
-      color: #0f172a;
-      border-radius: 10px;
+      color: var(--primary);
+      border-radius: 50px;
       text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
+    .btn-hero:hover {
+      background: var(--dark-bg);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Secciones Generales */
     .section {
-      padding: 80px 20px;
-      max-width: 1100px;
+      padding: 100px 20px;
+      max-width: 1200px;
       margin: auto;
     }
 
+    h2 {
+      margin-bottom: 50px;
+      font-size: 38px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Grid y Tarjetas (CORREGIDO PARA MOSTRAR ALGO SI NO HAY IMÁGENES) */
     .grid {
       display: grid;
-      gap: 25px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     .card {
-      background: #1e293b;
-      border-radius: 15px;
+      background: var(--card-bg);
+      border-radius: 20px;
       overflow: hidden;
-      transition: 0.3s;
+      transition: all 0.3s ease;
       border: 1px solid #334155;
+      position: relative;
     }
 
-    .card:hover { transform: translateY(-10px); border-color: #3b82f6; }
-    .card-img { width: 100%; height: 200px; object-fit: cover; }
-    .card-content { padding: 20px; }
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(59,130,246,0.3);
+    }
 
-    h2 { margin-bottom: 30px; font-size: 32px; text-align: center; }
+    /* Contenedor de la imagen a prueba de fallos */
+    .card-img-placeholder {
+      width: 100%;
+      height: 220px;
+      background-color: #334155; /* Fondo gris si no hay imagen */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    /*
+    /* La imagen en sí */
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none; /* Oculta por defecto */
+    }
+
+    .card-content {
+      padding: 25px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .card p {
+      color: #cbd5e1;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Formulario de Contacto (CONTRASTE BLANCO RECUPERADO Y MEJORADO) */
+    .contact-wrapper {
+      background: #f1f5f9; /* Fondo gris muy suave para la sección */
+      padding: 100px 20px;
+    }
+
+    .contact-container {
+      background: white; /* Contenedor blanco para contraste */
+      padding: 60px;
+      border-radius: 30px;
+      max-width: 700px;
+      margin: auto;
+      color: #1e293b; /* Texto oscuro */
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+
+    .contact-container h2 {
+      color: #1e293b;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 16px;
+      margin-top: 5px;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      color: #1e293b;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      height: 120px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 18px;
+      background: #22c55e;
+      border: none;
+      color: white;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background: #16a34a;
+      transform: scale(1.02);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 50px;
+      color: var(--text-muted);
+      border-top: 1px solid #1e293b;
+    }
+
+    /* Botón flotante de WhatsApp a prueba de fallos */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 70px;
+      height: 70px;
+      background-color: #25D366; /* Fondo verde por defecto */
+      border-radius: 50%;
+      z-index: 1000;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      font-size: 30px; /* Tamaño del icono si no hay imagen */
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Imagen de WhatsApp (se ajustará cuando se suba) */
+    .whatsapp-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: none; /* Oculta por defecto */
+    }
+
+    /* Animaciones */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Media Queries para móviles */
+    @media (max-width: 768px) {
+      header { padding: 10px 20px; }
+      nav a { margin-left: 15px; font-size: 14px; }
+      .hero h1 { font-size: 40px; }
+      .contact-container { padding: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <span class="logo-text" id="logo-text">ENGLISH FOR LIFE</span>
+    <img src="logo.png" alt="English for Life Logo" class="logo-img" id="logo-img">
+  </div>
+  <nav>
+    <a href="#about">Nosotros</a>
+    <a href="#courses">Cursos</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div data-animate>
+    <h1>Habla inglés con confianza</h1>
+    <p>Conectando el aprendizaje con la comunicación real, diseñado para tu éxito profesional y personal.</p>
+    <a href="#contact" class="btn-hero">Empieza ahora</a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2 data-animate>¿Por qué elegirnos?</h2>
+  <div class="grid">
+    <div class="card" data-animate>
+      <div class="card-img-placeholder">
+        <img src="dog.jpg" alt="Aprendizaje amigable" class="card-img">
+      </div>
+      <div class="card-content">
+        <h3>Comunicación real</h3>
+        <p>Aprende a hablar inglés en situaciones cotidianas desde el primer día.</p>
+      </div>
+    </div>
+    <div class="card" data-animate>
+      <div class="card-img-placeholder">
+        <img src="pen.jpg" alt="Metodología" class="card-img">
+      </div>
+      <div class="card-content">
+        <h3>Metodología moderna</h3>
+        <p>Enfoque práctico diseñado para superar barreras de aprendizaje.</p>
+      </div>
+    </div>
+    <div class="card" data-animate>
+      <div class="card-img-placeholder">
+        <img src="study.jpg" alt="Resultados" class="card-img">
+      </div>
+      <div class="card-content">
+        <h3>Resultados rápidos</h3>
+        <p>Clases dinámicas que garantizan mayor fluidez en menos tiempo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="courses">
+  <h2 data-animate>Nuestros Cursos</h2>
+  <div class="grid">
+    <div class="card" data-animate>
+      <div class="card-img-placeholder">
+        <img src="english.jpg" alt="Básico" class="card-img">
+      </div>
+      <div class="card-content">
+        <h3>Básico</h3>
+        <p>Empieza desde cero con bases sólidas y vocabulario esencial.</p>
+      </div>
+    </div>
+    <div class="card" data-animate>
+      <div class="card-img-placeholder">
+        <img src="listen.jpg" alt="Intermedio" class="card-img">
+      </div>
+      <div class="card-content">
+        <h3>Intermedio & Listening</h3>
+        <p>Mejora tu oído y tu fluidez para entender a nativos sin esfuerzo.</p>
+      </div>
+    </div>
+    <div class="card" data-animate>
+      <div class="card-img-placeholder">
+        <img src="study.jpg" alt="Pronunciación" class="card-img">
+      </div>
+      <div class="card-content">
+        <h3>Pronunciación</h3>
+        <p>Perfecciona tu acento y habla con seguridad absoluta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-wrapper" id="contact">
+  <div class="contact-container" data-animate>
+    <h2>Empieza hoy 🚀</h2>
+    <form id="form">
+      <div class="form-group">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Tu correo" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="telefono" placeholder="Tu WhatsApp">
+      </div>
+      <div class="form-group">
+        <select name="nivel" required>
+          <option value="">Nivel de inglés</option>
+          <option>Básico</option>
+          <option>Intermedio</option>
+          <option>Avanzado</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select name="objetivo">
+          <option value="">Objetivo</option>
+          <option>Conversación</option>
+          <option>Trabajo</option>
+          <option>Viajes</option>
+          <option>Pronunciación</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea name="mensaje" placeholder="Mensaje (opcional)"></textarea>
+      </div>
+      <button type="submit">Quiero empezar</button>
+    </form>
+  </div>
+</div>
+
+<a href="https://wa.me/50764117561" class="whatsapp-float" target="_blank" id="whatsapp-float">
+  <img src="whatsapp.png" alt="WhatsApp" class="whatsapp-img" id="whatsapp-img">
+  <span id="whatsapp-icon">💬</span>
+</a>
+
+<footer>
+  © 2026 English for Life
+</footer>
+
+<script>
+// Lógica de imágenes a prueba de fallos
+document.addEventListener("DOMContentLoaded", function() {
+  const checkAndShow = (imgId, placeholderId, iconId) => {
+    const img = document.getElementById(imgId);
+    const textOrIcon = document.getElementById(iconId || imgId.replace('-img', '-text'));
+
+    img.onload = function() {
+      // Si carga, muestra la imagen
+      img.style.display = 'block';
+      if(textOrIcon) textOrIcon.style.display = 'none';
+      if(placeholderId) {
+        document.querySelectorAll(`#${placeholderId} .card-img`).forEach(i => i.style.display = 'block');
+      }
+    };
+    img.onerror = function() {
+      // Si falla, muestra el texto/icono por defecto
+      if(textOrIcon) textOrIcon.style.display = 'block';
+    };
+    // Forzamos la recarga para el script
+    img.src = img.src;
+  };
+
+  // Verificaciones específicas
+  checkAndShow('logo-img');
+  checkAndShow('whatsapp-img', null, 'whatsapp-icon');
+
+  // Tarjetas: Como son varias, simplemente las habilitamos si cargan
+  document.querySelectorAll('.card-img').forEach(img => {
+    img.onload = () => img.style.display = 'block';
+    // No cambiamos el placeholder si falla, ya es un fondo gris
+  });
+
+  // Animaciones simples al hacer scroll
+  const animateElements = document.querySelectorAll('[data-animate]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  animateElements.forEach(el => observer.observe(el));
+});
+
+// Lógica del formulario
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const data = new FormData(this);
+  fetch("https://formspree.io/f/mykbvenz", {
+    method: "POST",
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(() => {
+    const nombre = data.get("nombre") || "";
+    const nivel = data.get("nivel") || "";
+    const mensaje = `Hola, soy ${nombre}. Mi nivel es ${nivel} y quiero información sobre clases de inglés.`;
+    window.location.href = `https://wa.me/50764117561?text=${encodeURIComponent(mensaje)}`;
+  });
+});
+</script>
+
+</body>
+</html>
