@@ -1,10 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Mi primera web</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English for Life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+    }
+
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 300;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #cbd5f5;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #3b82f6;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section h3 {
+      margin-bottom: 15px;
+      font-size: 26px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Hola 👋</h1>
-  <p>Esta es mi página web.</p>
+
+<header>
+  <h1>English for Life</h1>
+  <nav>
+    <a href="#about">Nosotros</a>
+    <a href="#mission">Misión</a>
+    <a href="#vision">Visión</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Aprende inglés de forma real</h2>
+  <p>“Conectando el aprendizaje con la comunicación real.”</p>
+  <a href="#contact" class="btn">Contáctanos</a>
+</section>
+
+<section class="section" id="about">
+  <h3>Sobre nosotros</h3>
+  <div class="card">
+    <p>
+      English for Life es una iniciativa enfocada en transformar la manera en que se aprende inglés, 
+      priorizando la comunicación real y la pronunciación efectiva para un desarrollo práctico del idioma.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="mission">
+  <h3>Misión</h3>
+  <div class="card">
+    <p>
+      Brindar formación en el idioma inglés mediante metodologías innovadoras enfocadas en la pronunciación 
+      y la comunicación efectiva, utilizando herramientas tecnológicas que favorezcan un aprendizaje flexible y de calidad.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="vision">
+  <h3>Visión</h3>
+  <div class="card">
+    <p>
+      Ser una organización reconocida en Panamá por la calidad de su enseñanza del idioma inglés en entornos virtuales, 
+      destacándose por la innovación y el desarrollo de competencias comunicativas en sus estudiantes.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h3>Contacto</h3>
+  <div class="card">
+    <p>📧 Email: contacto@englishforlife.site</p>
+    <p>📱 WhatsApp: +507 XXXX-XXXX</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 English for Life. Todos los derechos reservados.
+</footer>
+
 </body>
 </html>
